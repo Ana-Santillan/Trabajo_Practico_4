@@ -94,18 +94,40 @@ let persona = {
         const index = this.hobbies.indexOf(borrar);
         if (index > -1) {
         this.hobbies.splice(index, 1);
-        document.write("<br>")
+        document.write("<br>");
+        document.write("<hr>");
         document.write(`Se ha eliminado el hobbie ${borrar}.`);
         } else {
         document.write("<br>")
         document.write(`El hobbie ${borrar} no se encuentra en la lista.`);
         }
-        document.write("<hr>")
         document.write("<br>")
         persona.presentar();
+    },
+    buscarHobbie: function(hobbie) {
+      const index = this.hobbies.indexOf(hobbie);
+      if (index > -1) {
+        document.write("<br>");
+        document.write("<hr>");
+        document.write(`La persona tiene el hobbie ${hobbie}.`);
+      } else {
+        document.write("<br>");
+        document.write("<hr>");
+        document.write(`La persona no tiene el hobbie ${hobbie}.`);
+      }
+    },
+    borrarPrimerHobbie: function() {
+      this.hobbies.shift();
+      document.write("<br>");
+      document.write("<hr>");
+      document.write(`Se ha eliminado el primer hobbie`);
+      document.write("<br>");
+      persona.presentar();
     }
 }
 
 persona.presentar();
 persona.agregarHobbie();
 persona.borrarHobbie();
+persona.buscarHobbie("viajar");
+persona.borrarPrimerHobbie();
