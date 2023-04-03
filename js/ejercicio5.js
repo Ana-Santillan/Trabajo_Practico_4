@@ -6,6 +6,10 @@ Los métodos que se debe poder utilizar son:
 mostrarGeneracion: este método debe mostrar un mensaje indicando a qué
 generación pertenece la persona creada y cual es el rasgo característico de esta
 generación.
+esMayorDeEdad: indica si es mayor de edad, devuelve un mensaje indicando que la
+persona es mayor de edad.
+mostrarDatos: devuelve toda la información del objeto.
+generaDNI(): genera un número aleatorio de 8 cifras.
 */
 class persona{
     constructor(nombre, edad, dni, sexo, peso, altura, fechaNac){
@@ -74,11 +78,44 @@ class persona{
             document.write("<p>La generación es: Silent Generation <br> Su rasgo característico es: Austeridad</p>")
         }
     }
+    esMayorDeEdad(){
+        if(this.edad >= 18){
+            document.write("La persona es mayor de edad");
+        } else{
+            document.write("La persona NO es mayor de edad");
+        }
+    }
+    mostrarDatos(){
+        document.write(`<ul>
+        <li>Nombre: ${this.nombre}</li>
+        <li>Edad: ${this.edad}</li>
+        <li>DNI: ${this.dni}</li>
+        <li>Sexo: ${this.sexo}</li>
+        <li>Peso: ${this.peso}</li>
+        <li>Altura: ${this.altura}</li>
+        <li>Año Nacimiento: ${this.fechaNac}</li>
+        </ul>`);
+    }
+    generaDNI(){
+        const dniGenerado = Math.floor(Math.random() * 99999999) + 1;
+        this.dni = dniGenerado;
+    }
 }
 
 const persona1 = new persona("Ana", 23, 41984183, "F", 61, 1.58, 1999);
+persona1.generaDNI();
+persona1.mostrarDatos();
 persona1.mostrarGeneracion();
+persona1.esMayorDeEdad();
+document.write("<hr>")
 const persona2 = new persona("Maria", 63, 41984183, "F", 70, 1.65, 1960);
+persona2.generaDNI();
+persona2.mostrarDatos();
 persona2.mostrarGeneracion();
-const persona3 = new persona("Juan", 33, 41984183, "F", 80, 1.70, 1990);
+persona2.esMayorDeEdad();
+document.write("<hr>")
+const persona3 = new persona("Juan", 33, 41984183, "M", 80, 1.70, 1990);
+persona3.generaDNI();
+persona3.mostrarDatos();
 persona3.mostrarGeneracion();
+persona3.esMayorDeEdad();
