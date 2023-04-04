@@ -131,13 +131,13 @@ while(opcion !== "0") {
             miAgenda.eliminarContacto(contactoEliminar);
             break;
         case '6':
-            document.write(`La agenda está${miAgenda.agendaLlena() ? "" : " no"} llena.`);
+            document.write(`<p>La agenda está${miAgenda.agendaLlena() ? "" : " no"} llena.</p>`);
             break;
         case '7':
-            document.write(`Hay ${miAgenda.huecosLibres()} huecos libres en la agenda.`);
+            document.write(`<p>Hay ${miAgenda.huecosLibres()} huecos libres en la agenda.</p>`);
             break;
         case '0':
-            document.write("Saliendo de la agenda telefónica.");
+            document.write("<p>Saliendo de la agenda telefónica.</p>");
             break;
         default:
             document.write("Opción inválida.");
