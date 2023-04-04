@@ -10,7 +10,7 @@ Buscar un producto serum y mostrarlo por pantalla,
 Buscar un producto 'Bruma’ y mostrar un mensaje adecuado para el usuario si el producto no existe en el array.
 */
 
-let listaProductos = [
+let arreglo = [
     {
         nombreProducto: "Hidratante facial",
         precio: 3500,
@@ -69,3 +69,81 @@ let listaProductos = [
     },
     { nombreProducto: "Agua micellar", precio: 2890, categoria: "Limpieza" },
 ];
+document.write("<p>Lista de productos:</p>");
+function mostrarTabla() {
+    document.write(`<table><thead><tr>
+    <th>Productos</th>
+    <th>Categorias</th>
+    <th>Precios</th>
+    </tr></thead><tbody>`);
+    arreglo.forEach((producto) => {
+        document.write(`<tr>
+        <td>${producto.nombreProducto}</td>
+        <td>${producto.categoria}</td>
+        <td>${producto.precio}</td>
+        </tr>`);
+    })
+    document.write(`</tbody></table>`);
+}
+
+mostrarTabla();
+document.write("<br>");
+document.write("<hr>");
+document.write("<br>");
+
+function protectoresSolares() {
+    document.write(`<table><thead><tr>
+    <th>Producto</th>
+    <th>Categorias</th>
+    <th>Precio</th>
+    </tr></thead><tbody>`);
+    arreglo.forEach((producto) => {
+        producto.nombreProducto.includes("Protector")
+            ? document.write(`<tr>
+        <td>${producto.nombreProducto}</td>
+        <td>${producto.categoria}</td>
+        <td>${producto.precio}</td></tr>`)
+            : false;
+    })
+    document.write(`</tbody></table>`);
+}
+document.write("<p>Mostrar Protectores Solares:</p>");
+protectoresSolares();
+document.write("<br>");
+document.write("<hr>");
+document.write("<br>");
+
+document.write("<p>Buscar producto Sérum:</p>");
+function mostrarSerum() {
+    document.write(
+        `<table><thead><tr>
+        <th>Producto</th>
+        <th>Categorias</th>
+        <th>Precio</th>
+        </tr></thead><tbody>`
+    );
+    arreglo.forEach((producto) => {
+        producto.categoria.includes("Sérum")
+            ? document.write(
+                `<tr>
+                <td>${producto.nombreProducto}</td>
+                <td>${producto.categoria}</td>
+                <td>${producto.precio}</td></tr>`
+            )
+            : false;
+    });
+    document.write(`</tbody></table>`);
+}
+
+mostrarSerum();
+document.write("<br>");
+document.write("<hr>");
+document.write("<br>");
+
+document.write("<p>Buscar producto bruma:</p>");
+
+let productoBruma = arreglo.find((producto) =>
+    producto.nombreProducto.includes("Bruma")
+);
+
+productoBruma != undefined ? mostrarTabla([productoBruma]) : document.write("<p>No se encontró el producto solicitado<p>");
